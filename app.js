@@ -1,27 +1,21 @@
-// GLOBALS - NO WINDOWS
+// CommonJS, every file is module (by default)
+// Modules - Encapsulated Code (only share minimum)
 
-// __dirname	- path to current directory
-// __filename	- file name
-// require		- function to use modules (Common JS)
-// module		- info about current module (file)
-// process		- info about env where the program is being executed
+const john = 'john';
+const peter = 'peter';
 
-console.log("__dirname");
-console.log(__dirname);
-console.log('\n\n\n\n///////////////////-------------------------/////////////////////\n\n\n\n\n');
-console.log("__filename");
-console.log(__filename);
-console.log('\n\n\n\n///////////////////-------------------------/////////////////////\n\n\n\n\n');
-console.log("require");
-console.log(require);
-console.log('\n\n\n\n///////////////////-------------------------/////////////////////\n\n\n\n\n');
-console.log("module");
-console.log(module);
-console.log('\n\n\n\n///////////////////-------------------------/////////////////////\n\n\n\n\n');
-console.log("process");
-console.log(process);
-console.log('\n\n\n\n///////////////////-------------------------/////////////////////\n\n\n\n\n');
+const sayHi = (name) => {
+	console.log(`Hello there ${name}`);
+}
 
-setInterval(() => {
-	console.log('hello');
-}, 1000);
+const calcAge = (name, birthYear) => {
+	let age = 2021 - birthYear;
+	console.log(`${name}'s age is ${age}`);
+}
+
+sayHi('susan');
+calcAge('susan', 1989);
+sayHi(john);
+calcAge(john, 1994);
+sayHi(peter);
+calcAge(peter, 1954);
