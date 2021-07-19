@@ -1,21 +1,15 @@
 // CommonJS, every file is module (by default)
 // Modules - Encapsulated Code (only share minimum)
 
-const john = 'john';
-const peter = 'peter';
-
-const sayHi = (name) => {
-	console.log(`Hello there ${name}`);
-}
-
-const calcAge = (name, birthYear) => {
-	let age = 2021 - birthYear;
-	console.log(`${name}'s age is ${age}`);
-}
+const names = require('./names');
+const sayHi = require('./sayHi');
+const calculateAge = require('./calculateAge');
 
 sayHi('susan');
-calcAge('susan', 1989);
-sayHi(john);
-calcAge(john, 1994);
-sayHi(peter);
-calcAge(peter, 1954);
+calculateAge('susan', 1989);
+console.log('\n');
+sayHi(names.john);
+calculateAge(names.john, 1994);
+console.log('\n');
+sayHi(names.peter);
+calculateAge(names.peter, 1954);
