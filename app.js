@@ -1,23 +1,12 @@
-const os = require('os');
+const path = require('path');
 
-// info about current user
-const user = os.userInfo();
-console.log('user infos');
-console.log('--------------------');
-console.log(user);
+console.log(path.sep);
 
-// method returns the system uptime in seconds
-console.log('\nsystem uptime');
-console.log('--------------------');
-console.log(`${os.uptime()} seconds`);
+const filePath = path.join('/content', 'sufolder', 'text.txt');
+console.log(filePath);
 
-const currentOS = {
-	name: os.type(),
-	release: os.release(),
-	totalMem: os.totalmem(),
-	freeMem: os.freemem(),
-}
+const base = path.basename(filePath);
+console.log(base);
 
-console.log('\nsystem infos');
-console.log('--------------------');
-console.log(currentOS);
+const absolute = path.resolve(__dirname, 'content', 'subfolder', 'text.txt');
+console.log(absolute);
