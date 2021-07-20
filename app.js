@@ -1,23 +1,45 @@
-const { readFileSync, writeFileSync } = require('fs');
+const { readFile, writeFile } = require('fs');
 
-const first = readFileSync('./content/first.txt', 'utf-8');
-const second = readFileSync('./content/second.txt', 'utf-8');
-console.log(first, second);
+readFile('./content/first.txt','utf-8', (err, result) => {
+	if(err){
+		console.log(err);
+		return;
+	}
+	const first = result;
+	console.log(first);
 
-writeFileSync(
-	'./content/result-sync.txt',
-	'Hello, this is our result file',
-);
-const result = readFileSync('./content/result-sync.txt', 'utf-8');
-console.log(result);
+	readFile('./content/second.txt','utf-8', (err, result) => {
+		if(err){
+			console.log(err);
+			return;
+		}
+		const second = result;
+		console.log(second);
 
-writeFileSync(
-	'./content/result-sync.txt',
-	' from Sync method',
-	{ flag: 'a'} 
-);
-const append = readFileSync('./content/result-sync.txt', 'utf-8');
-console.log(append);
+	writeFile('./content/result-async.txt',
+		'Hello, this is our result file',
+		(err, result) => {
+			if(err) {
+				console.log(err);
+				return;
+			}
+			const write = result;
+			console.log(write);
+		}
+	);
 
+	writeFile('./content/result-async.txt',
+		' from Async method',
+		{ flag: 'a' },
+		(err, result) => {
+			if (err) {
+				console.log(err);
+				return;
+			}
+			const append = result;
+			console.log(append);
+		}
+	);
 
-
+	})
+})
