@@ -1,15 +1,12 @@
-// npm - global command, comes with node
-// npm --version
+const { readFile } = require('fs');
 
-// local dependency - use it only in this particular project
-// npm i <packageName>
-
-// global dependency - use it in any project
-// npm install -g <packageName>
-
-// package.json - manifest file (stores important info about project/package)
-// manual approach (create package.json in the root, create properties etc)
-// npm init (step by step, press enter to skip)
-// npm init -y (everything default)
-
-// npm uninstall <packageName> (remove the package  selected)
+console.log('started first task');
+readFile('./content/first.txt', 'utf-8', (err, result) => {
+	if(err) {
+		console.log(err);
+		return;
+	}
+	console.log(result);
+	console.log('completed first task');
+})
+console.log('next task');
