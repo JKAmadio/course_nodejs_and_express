@@ -1,17 +1,23 @@
-// CommonJS, every file is module (by default)
-// Modules - Encapsulated Code (only share minimum)
+const os = require('os');
 
-const names = require('./names');
-const functions = require('./utils');
-require('./mind-grenade');
+// info about current user
+const user = os.userInfo();
+console.log('user infos');
+console.log('--------------------');
+console.log(user);
 
-/*
-functions.sayHi('susan');
-functions.calculateAge('susan', 1989);
-console.log('\n');
-functions.sayHi(names.john);
-functions.calculateAge(names.john, 1994);
-console.log('\n');
-functions.sayHi(names.peter);
-functions.calculateAge(names.peter, 1954);
-*/
+// method returns the system uptime in seconds
+console.log('\nsystem uptime');
+console.log('--------------------');
+console.log(`${os.uptime()} seconds`);
+
+const currentOS = {
+	name: os.type(),
+	release: os.release(),
+	totalMem: os.totalmem(),
+	freeMem: os.freemem(),
+}
+
+console.log('\nsystem infos');
+console.log('--------------------');
+console.log(currentOS);
